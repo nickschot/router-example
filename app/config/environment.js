@@ -1,7 +1,11 @@
-import loadConfigFromMeta from '@embroider/config-meta-loader';
 import { assert } from '@ember/debug';
 
-const config = loadConfigFromMeta('router-example');
+const config = {
+  modulePrefix: 'router-example',
+  locationType: 'history',
+  rootURL: '/',
+  APP: {},
+};
 
 assert(
   'config is not an object',

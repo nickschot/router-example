@@ -1,10 +1,10 @@
 import { defineConfig } from 'vite';
-import { extensions, classicEmberSupport, ember } from '@embroider/vite';
+import { extensions, /*classicEmberSupport,*/ ember } from '@embroider/vite';
 import { babel } from '@rollup/plugin-babel';
 
 export default defineConfig({
   plugins: [
-    classicEmberSupport(),
+    //classicEmberSupport(),
     ember(),
     // extra plugins here
     babel({
@@ -12,4 +12,8 @@ export default defineConfig({
       extensions,
     }),
   ],
+  optimizeDeps: {
+    noDiscovery: true,
+    include: ['ember-source > backburner.js', '@embroider/macros'],
+  },
 });
